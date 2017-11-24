@@ -24,9 +24,18 @@ public class HumanArcher  implements Hero {
 
     @Override
     public boolean isLife() {
-        if(health>0){
-            return true;
-        }
-        return false;
+        return health>0;
+    }
+
+    public static String getNameOfArcher() {
+        return nameOfArcher;
+    }
+
+    public static int getHealth() {
+        return health;
+    }
+
+    public static void setHealth(int health) {
+        HumanArcher.health = health;
     }
 }

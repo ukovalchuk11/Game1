@@ -27,4 +27,16 @@ public class ElfWarrior implements Hero {
         }
         return false;
     }
+
+    public static String getNameOfWarrior() {
+        return nameOfWarrior;
+    }
+
+    public static int getHealth() {
+        return health;
+    }
+
+    public static void setHealth(int health) {
+        ElfWarrior.health = health;
+    }
 }

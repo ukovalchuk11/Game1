@@ -31,4 +31,16 @@ public class ElfWizard implements Hero {
         }
         return false;
     }
+
+    public static String getNameOfWizard() {
+        return nameOfWizard;
+    }
+
+    public static int getHealth() {
+        return health;
+    }
+
+    public static void setHealth(int health) {
+        ElfWizard.health = health;
+    }
 }
