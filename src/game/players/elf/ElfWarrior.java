@@ -3,36 +3,47 @@ package game.players.elf;
 
 import game.players.Hero;
 
+import java.util.Random;
+
 public class ElfWarrior implements Hero {
     private static final String nameOfWarrior = "Elf warrior ";
-    private static final int swordDamage = 15;
-    private static final int fullHealth =100;
-    private static int health;
+    private static final double swordDamage = 15;
+    private static final double fullHealth =100;
+    private Random random = new Random();
+    private boolean isElf = random.nextBoolean();
+    private static double health;
+    private static double privileged;
 
     @Override
     public boolean action(Hero hero, boolean enemy) {
-        hero.damage(swordDamage);
-        return enemy;
+        hero.damage(swordDamage*privileged);
+        return enemy=true;
     }
 
     @Override
-    public void damage(int ip) {
+    public void damage(double ip) {
         health=fullHealth-ip;
     }
 
     @Override
     public boolean isLife() {
-        if(health>0){
-            return true;
-        }
-        return false;
+        return health > 0;
     }
 
     public static String getNameOfWarrior() {
         return nameOfWarrior;
     }
 
-    public static int getHealth() {
+    @Override
+    public void privileged() {
+        if(isElf){
+            privileged=1.5;
+        }
+        else
+            privileged=1;
+    }
+
+    public static double getHealth() {
         return health;
     }
 

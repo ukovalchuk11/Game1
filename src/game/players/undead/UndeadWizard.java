@@ -22,9 +22,18 @@ public class UndeadWizard implements Hero {
 
     @Override
     public boolean isLife() {
-        if(health>0){
-            return true;
-        }
-        return false;
+        return health > 0;
+    }
+
+    public static String getNameOfWizard() {
+        return nameOfWizard;
+    }
+
+    public static int getHealth() {
+        return health;
+    }
+
+    public static void setHealth(int health) {
+        UndeadWizard.health = health;
     }
 }

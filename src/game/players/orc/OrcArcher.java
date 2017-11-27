@@ -6,25 +6,26 @@ import java.util.Random;
 
 public class OrcArcher implements Hero {
     private static final String nameOfArcher = "Orc archer";
-    private static final int archerDamage = 3;
-    private static final int meleeDamage = 2;
-    private static final int fullHealth = 100;
+    private static final double archerDamage = 3;
+    private static final double meleeDamage = 2;
+    private static final double fullHealth = 100;
     private Random random = new Random();
     private boolean isOrc = random.nextBoolean();
-    private static int health;
+    private static double health;
+    private static double privileged;
 
     @Override
     public boolean action(Hero hero, boolean enemy) {
         if (isOrc) {
-            hero.damage(archerDamage);
+            hero.damage(archerDamage*privileged);
             return enemy = true;
         } else
-            hero.damage(meleeDamage);
+            hero.damage(meleeDamage*privileged);
             return enemy = true;
     }
 
     @Override
-    public void damage(int ip) {
+    public void damage(double ip) {
         health = fullHealth - ip;
     }
 
@@ -33,11 +34,20 @@ public class OrcArcher implements Hero {
         return health > 0;
     }
 
+    @Override
+    public void privileged() {
+        if(isOrc){
+            privileged=1.5;
+        }
+        else
+            privileged=1;
+    }
+
     public static String getNameOfArcher() {
         return nameOfArcher;
     }
 
-    public static int getHealth() {
+    public static double getHealth() {
         return health;
     }
 

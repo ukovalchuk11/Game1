@@ -21,9 +21,18 @@ public class UndeadWarrior implements Hero {
 
     @Override
     public boolean isLife() {
-        if(health>0){
-            return true;
-        }
-        return false;
+        return health > 0;
+    }
+
+    public static String getNameOfWarrior() {
+        return nameOfWarrior;
+    }
+
+    public static int getHealth() {
+        return health;
+    }
+
+    public static void setHealth(int health) {
+        UndeadWarrior.health = health;
     }
 }
